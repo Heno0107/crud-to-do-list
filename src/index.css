@@ -1,0 +1,14 @@
+* {
+    color: white;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: black;
+}
+
+h1 {
+    text-shadow: white 0 0 12px;
+    text-align: center;
+    font-size: 40px;
+}

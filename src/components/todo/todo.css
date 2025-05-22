@@ -1,0 +1,27 @@
+.todo button {
+    all: unset;
+    padding: 12px;
+    font-size: 24px;
+    color: red;
+    background-color: transparent;
+    transition: 0.4s;
+    &:hover {
+        color: white;
+        background-color: red;
+    }
+}
+
+.todo p{
+    font-size: 24px;
+}
+
+.todo {
+    max-width: 1240px;
+    margin: auto;
+    padding: 16px 28px;
+    width: 100%;
+    background-color: black;
+    border: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+}

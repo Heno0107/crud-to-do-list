@@ -1,0 +1,11 @@
+ul {
+    list-style: none;
+}
+
+.todos ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
