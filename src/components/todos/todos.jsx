@@ -2,7 +2,7 @@ import { Todo } from '../todo/todo'
 
 import './todos.css'
 
-export function Todos ({todos , setTodos}) {
+export function Todos ({todos , remove , checkedChange}) {
     console.log(todos)
     return (
         <div className='todos'>
@@ -15,8 +15,8 @@ export function Todos ({todos , setTodos}) {
                             id = {todo.id}
                             title = {todo.title}
                             completed = {todo.completed}
-                            todos = {todos}
-                            setTodos = {setTodos}/>
+                            remove={remove}
+                            checkedChange = {checkedChange}/>
                         </li>
                     })
                 }
