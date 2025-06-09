@@ -1,22 +1,27 @@
+import { useReducer } from 'react'
+
 import { Todo } from '../todo/todo'
+import { reducer , initState } from '../../store/store'
 
 import './todos.css'
 
-export function Todos ({todos , remove , checkedChange}) {
-    console.log(todos)
+export function Todos ({checkedChange , edit}) {
+    const [state , dispatch] = useReducer(reducer , initState)
+
     return (
         <div className='todos'>
             <ul>
                 {
-                    todos.map((todo) => {
+                    state.todos.map((todo) => {
                         return <li>
                             <Todo
                             key={todo.id}
                             id = {todo.id}
                             title = {todo.title}
                             completed = {todo.completed}
-                            remove={remove}
-                            checkedChange = {checkedChange}/>
+                            editable = {todo.editable}
+                            checkedChange = {checkedChange}
+                            edit = {edit}/>
                         </li>
                     })
                 }

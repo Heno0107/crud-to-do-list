@@ -25,3 +25,13 @@
     display: flex;
     justify-content: space-between;
 }
+
+.todo input {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    padding: 16px 0;
+    margin: 7px 0;
+}
