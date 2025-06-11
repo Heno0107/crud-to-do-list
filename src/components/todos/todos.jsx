@@ -1,12 +1,8 @@
-import { useReducer } from 'react'
-
 import { Todo } from '../todo/todo'
-import { reducer , initState } from '../../store/store'
 
 import './todos.css'
 
-export function Todos ({checkedChange , edit}) {
-    const [state , dispatch] = useReducer(reducer , initState)
+export function Todos ({state , dispatch}) {
 
     return (
         <div className='todos'>
@@ -20,8 +16,8 @@ export function Todos ({checkedChange , edit}) {
                             title = {todo.title}
                             completed = {todo.completed}
                             editable = {todo.editable}
-                            checkedChange = {checkedChange}
-                            edit = {edit}/>
+                            state = {state}
+                            dispatch = {dispatch}/>
                         </li>
                     })
                 }
