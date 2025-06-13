@@ -1,5 +1,6 @@
 // BLL
 const GET = 'get'
+const POST = 'post'
 
 export const initState = {
     todos : [] ,
@@ -37,7 +38,7 @@ export const reducer = (state , action) => {
             return {
                 ...state ,
                 todos : state.todos.map((todo) => {
-                    if(action.payload.editText)
+                    if(action.payload.editText){
                         if(todo.id === action.payload.id){
                           return {
                             ...todo ,
@@ -45,7 +46,7 @@ export const reducer = (state , action) => {
                             title : action.payload.editText
                           }
                         }
-                      })
+                      }})
             }
         case 'textChange' :
             return {
@@ -57,6 +58,11 @@ export const reducer = (state , action) => {
                 ...state ,
                 todos : action.payload
             }
+        case POST :
+            return {
+                ...state ,
+                todos : [...state.todos , action.payload]
+            }
         default : 
             return state;
     }
@@ -64,4 +70,8 @@ export const reducer = (state , action) => {
 
 export function getTodoAction(data){
     return {type : GET , payload : data}
+}
+
+export function postTodoAction(data){
+    return {type : POST , payload : data} 
 }

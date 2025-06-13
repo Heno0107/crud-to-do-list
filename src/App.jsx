@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <h1>TO DO LIST</h1>
-      <Input state = {state} dispatch = {dispatch}/>
+      <Input state = {state} dispatch = {dispatch} postTodos = {API.postTodos}/>
       <Todos state = {state} dispatch = {dispatch}/>
     </>
   )

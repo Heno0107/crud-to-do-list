@@ -9,7 +9,8 @@ export function Todos ({state , dispatch}) {
             <ul>
                 {
                     state.todos.map((todo) => {
-                        return <li>
+                        console.log(todo)
+                        return <li key={todo.id}>
                             <Todo
                             key={todo.id}
                             id = {todo.id}
