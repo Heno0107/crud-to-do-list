@@ -2,7 +2,7 @@ import { Todo } from '../todo/todo'
 
 import './todos.css'
 
-export function Todos ({state , dispatch}) {
+export function Todos ({state , dispatch , patchTodos , deleteTodos}) {
 
     return (
         <div className='todos'>
@@ -18,7 +18,9 @@ export function Todos ({state , dispatch}) {
                             completed = {todo.completed}
                             editable = {todo.editable}
                             state = {state}
-                            dispatch = {dispatch}/>
+                            dispatch = {dispatch}
+                            patchTodos = {patchTodos}
+                            deleteTodos = {deleteTodos}/>
                         </li>
                     })
                 }

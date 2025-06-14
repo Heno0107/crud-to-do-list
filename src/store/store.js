@@ -1,6 +1,8 @@
 // BLL
 const GET = 'get'
 const POST = 'post'
+const PATCH = 'patch'
+const DELETE = 'delete'
 
 export const initState = {
     todos : [] ,
@@ -9,17 +11,11 @@ export const initState = {
 
 export const reducer = (state , action) => {
     switch(action.type){
-        case 'add' :
-            return {
-                ...state ,
-                todos : [...state.todos , {id : Date.now() , title : action.payload , completed : false , editable : false}] ,
-                text : ''
-            }
-        case 'remove' :
-            return {
-                ...state ,
-                todos : state.todos.filter((todo) => todo.id !== action.payload)
-            }
+        // case 'remove' :
+        //     return {
+        //         ...state ,
+        //         todos : state.todos.filter((todo) => todo.id !== action.payload)
+        //     }
         case 'checkedChange' :
             return {
                 ...state ,
@@ -59,9 +55,23 @@ export const reducer = (state , action) => {
                 todos : action.payload
             }
         case POST :
+            if(state.text){
             return {
                 ...state ,
-                todos : [...state.todos , action.payload]
+                todos : [...state.todos , action.payload] ,
+                text : ''
+            }}else{
+                return state
+            }
+        case PATCH :
+            return {
+                ...state ,
+                todos : [...state.todos.filter((todo) => todo.id !== action.payload.id) , action.payload.data]
+            }
+        case DELETE :
+            return {
+                ...state , 
+                todos : state.todos //????
             }
         default : 
             return state;
@@ -74,4 +84,12 @@ export function getTodoAction(data){
 
 export function postTodoAction(data){
     return {type : POST , payload : data} 
+}
+
+export function patchTodoAction(data , id){
+    return {type : PATCH , payload : {data , id}}
+}
+
+export function deleteTodoAction(){
+    return {type : DELETE}
 }
